@@ -5,7 +5,7 @@ import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -26,15 +26,11 @@ public class EUser extends Auditable<Long> implements Serializable {
     private String lastName;
     private String midName;
     private String ip;
-    private Date lastSign;
+    private LocalDateTime lastSign;
 
-    private Boolean isTech;
-
-    @ManyToMany(cascade = { CascadeType.ALL })
-    @JoinTable(
-            name = "E_USER_ROLE",
-            joinColumns = { @JoinColumn(name = "USER_ID") },
-            inverseJoinColumns = { @JoinColumn(name = "ROLE_ID") }
-    )
+    @ManyToMany(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
+    @JoinTable(name = "E_USER_ROLE",
+                joinColumns = @JoinColumn(name = "USER_ID"),
+                inverseJoinColumns = @JoinColumn(name = "ROLE_ID"))
     private List<ERole> roles;
 }

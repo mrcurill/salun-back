@@ -35,7 +35,7 @@ public final class JwtUserFactory {
                 user.getEmail(),
                 user.getPassword(),
                 mapToGrantedAuthority(user.getRoles()),
-                user.getIsDeleted(),
+                !user.getIsDeleted(),
                 user.getUpdatedAt()
         );
     }
