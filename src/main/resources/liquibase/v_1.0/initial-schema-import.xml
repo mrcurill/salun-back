@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+	    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+
+    <changeSet id="create_table_E_ROLE" author="kagapov">
+        <createSequence sequenceName="E_ROLE_ID_SEQ"/>
+        <createTable tableName="E_ROLE" remarks="Таблица ролей">
+            <column name="ID" type="BIGINT" defaultValueSequenceNext="E_ROLE_ID_SEQ" remarks="id роли">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_E_ROLE"/>
+            </column>
+            <column name="CREATED_AT" type="DATETIME" defaultValueDate="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_BY" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="UPDATED_AT" type="DATETIME" defaultValueDate="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="UPDATED_BY" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="IS_DELETED" type="CHAR(1)" defaultValue="N">
+                <constraints nullable="false" />
+            </column>
+            <column name="NAME" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+
+    <changeSet id="create_table_E_USER" author="kagapov">
+        <createSequence sequenceName="E_USER_ID_SEQ"/>
+        <createTable tableName="E_USER" remarks="Таблица пользователей">
+            <column name="ID" type="BIGINT" defaultValueSequenceNext="E_USER_ID_SEQ" remarks="id пользователя">
+                <constraints primaryKey="true" primaryKeyName="PK_E_USER"/>
+            </column>
+            <column name="CREATED_AT" type="DATETIME" defaultValueDate="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_BY" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="UPDATED_AT" type="DATETIME" defaultValueDate="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="UPDATED_BY" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="IS_DELETED" type="CHAR(1)" defaultValue="N">
+                <constraints nullable="false" />
+            </column>
+            <column name="USERNAME" type="VARCHAR(50)">
+                <constraints nullable="true" unique="true"/>
+            </column>
+            <column name="PASSWORD" type="VARCHAR(200)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="EMAIL" type="VARCHAR(100)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="FIRST_NAME" type="VARCHAR(50)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="LAST_NAME" type="VARCHAR(50)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="MID_NAME" type="VARCHAR(50)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="IP" type="VARCHAR">
+                <constraints nullable="true"/>
+            </column>
+            <column name="LAST_SIGN" type="DATETIME">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+
+    <changeSet id="create_table_E_USER_ROLE" author="kagapov">
+        <createSequence sequenceName="E_USER_ROLE_ID_SEQ"/>
+        <createTable tableName="E_USER_ROLE">
+            <column name="ID" type="BIGINT" defaultValueSequenceNext="E_USER_ROLE_ID_SEQ">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="PK_E_USER_ROLE"/>
+            </column>
+            <column name="CREATED_AT" type="DATETIME" defaultValueDate="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CREATED_BY" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="UPDATED_AT" type="DATETIME" defaultValueDate="CURRENT_TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+            <column name="UPDATED_BY" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="IS_DELETED" type="CHAR(1)" defaultValue="N">
+                <constraints nullable="false" />
+            </column>
+            <column name="USER_ID" type="BIGINT" remarks="id пользователя">
+                <constraints nullable="false" foreignKeyName="FK_E_USER_ROLE_USER_ID" references="E_USER (ID)"/>
+            </column>
+            <column name="ROLE_ID" type="BIGINT" remarks="id  роли">
+                <constraints nullable="false" foreignKeyName="FK_E_USER_ROLE_ROLE_ID" references="E_ROLE (ID)"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>
+
+
