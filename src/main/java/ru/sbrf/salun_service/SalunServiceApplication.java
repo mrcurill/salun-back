@@ -1,4 +1,4 @@
-package ru.sbrf.muza_service;
+package ru.sbrf.salun_service;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
