@@ -1,4 +1,4 @@
-package ru.sbrf.muza_service.web;
+package ru.sbrf.salun_service.web;
 
 import io.jsonwebtoken.JwtException;
 import lombok.RequiredArgsConstructor;
@@ -9,20 +9,20 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.web.bind.annotation.*;
-import ru.sbrf.muza_service.aspect.LogRequestResponse;
-import ru.sbrf.muza_service.dao.entity.EUser;
-import ru.sbrf.muza_service.exceptions.CustomException;
-import ru.sbrf.muza_service.jwt.JwtTokenProvider;
-import ru.sbrf.muza_service.service.EUserService;
-import ru.sbrf.muza_service.web.reqponse.ErrorResponse;
-import ru.sbrf.muza_service.web.reqponse.LoginResponse;
-import ru.sbrf.muza_service.web.request.LoginRequest;
+import ru.sbrf.salun_service.aspect.LogRequestResponse;
+import ru.sbrf.salun_service.dao.entity.EUser;
+import ru.sbrf.salun_service.exceptions.CustomException;
+import ru.sbrf.salun_service.jwt.JwtTokenProvider;
+import ru.sbrf.salun_service.service.EUserService;
+import ru.sbrf.salun_service.web.reqponse.ErrorResponse;
+import ru.sbrf.salun_service.web.reqponse.LoginResponse;
+import ru.sbrf.salun_service.web.request.LoginRequest;
+import ru.sbrf.salun_service.web.request.RegisterRequest;
 
 
 @RestController
 @RequestMapping("/auth")
-@CrossOrigin(origins = "*", allowedHeaders = "*" ,allowCredentials = "true",
-        methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PATCH, RequestMethod.DELETE})
+@CrossOrigin
 @RequiredArgsConstructor
 @Slf4j
 public class AuthenticationController {
@@ -42,15 +42,19 @@ public class AuthenticationController {
     public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest) {
         try {
 
-            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
+            //FIXME
+            String username = loginRequest.getEmail().toUpperCase();
 
-            EUser user = userService.getByUsername(loginRequest.getUsername());
-            String token = jwtTokenProvider.createToken(user.getId(), loginRequest.getUsername(), user.getRoles());
+            authenticationManager.authenticate(
+                    new UsernamePasswordAuthenticationToken(username, loginRequest.getPassword()));
+
+            EUser user = userService.getByUsername(username);
+            String token = jwtTokenProvider.createToken(user.getId(), username, user.getRoles());
 
             userService.setLastSign(user.getId());
 
             LoginResponse response = new LoginResponse();
-            response.setUser_id(user.getId());
+            response.setUserId(user.getId());
             response.setToken(token);
 
             return ResponseEntity.ok(response);
@@ -59,6 +63,13 @@ public class AuthenticationController {
             log.error("Something wrong " + e);
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new ErrorResponse(e.getMessage()));
         }
+    }
+
+    @LogRequestResponse
+    @PostMapping("/register")
+    public ResponseEntity<Void> register(@RequestBody RegisterRequest request) {
+        userService.register(request);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
 }

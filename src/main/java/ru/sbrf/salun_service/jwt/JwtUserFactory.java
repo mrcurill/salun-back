@@ -1,9 +1,9 @@
-package ru.sbrf.muza_service.jwt;
+package ru.sbrf.salun_service.jwt;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import ru.sbrf.muza_service.dao.entity.ERole;
-import ru.sbrf.muza_service.dao.entity.EUser;
+import ru.sbrf.salun_service.dao.entity.ERole;
+import ru.sbrf.salun_service.dao.entity.EUser;
 
 import java.time.LocalDateTime;
 import java.util.Collections;

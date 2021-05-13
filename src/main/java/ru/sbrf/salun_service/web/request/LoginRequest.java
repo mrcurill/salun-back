@@ -1,4 +1,4 @@
-package ru.sbrf.muza_service.web.request;
+package ru.sbrf.salun_service.web.request;
 
 import lombok.Data;
 
@@ -12,4 +12,5 @@ public class LoginRequest {
     private String username;
     /** Пароль */
     private String password;
+    private String email;
 }

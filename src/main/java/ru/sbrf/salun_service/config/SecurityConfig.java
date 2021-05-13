@@ -1,6 +1,5 @@
-package ru.sbrf.muza_service.config;
+package ru.sbrf.salun_service.config;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,8 +10,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import ru.sbrf.muza_service.jwt.JwtConfigurer;
-import ru.sbrf.muza_service.jwt.JwtTokenProvider;
+import ru.sbrf.salun_service.jwt.JwtConfigurer;
+import ru.sbrf.salun_service.jwt.JwtTokenProvider;
 
 @Configuration
 @EnableWebSecurity
@@ -22,7 +21,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private static final String SWAGGER_UI = "/swagger-ui/**";
     private static final String SWAGGER_API = "/v3/api-docs/**";
     private static final String LOGIN_ENDPOINT = "/auth/**";
-    private static final String FRONT_ENDPOINT = "/api/v1/front/**";
+    private static final String FRONT_ENDPOINT = "/api/v1/**";
 
     private final JwtTokenProvider jwtTokenProvider;
 

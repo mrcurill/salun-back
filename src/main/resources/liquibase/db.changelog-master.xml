@@ -8,4 +8,7 @@
     <include file="v_1.0/initial-schema-import.xml" relativeToChangelogFile="true"/>
     <include file="v_1.0/initial-data-import.xml" relativeToChangelogFile="true"/>
 
+
+    <include file="v_1.0/test-data-import.xml" relativeToChangelogFile="true"/>
+
 </databaseChangeLog>

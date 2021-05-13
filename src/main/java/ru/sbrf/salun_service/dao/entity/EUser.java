@@ -1,4 +1,4 @@
-package ru.sbrf.muza_service.dao.entity;
+package ru.sbrf.salun_service.dao.entity;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;

@@ -1,4 +1,5 @@
-package ru.sbrf.muza_service.jwt;
+package ru.sbrf.salun_service.jwt;
+
 
 import io.jsonwebtoken.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +9,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Component;
-import ru.sbrf.muza_service.dao.entity.ERole;
+import ru.sbrf.salun_service.dao.entity.ERole;
 
 import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;

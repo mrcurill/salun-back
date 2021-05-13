@@ -13,58 +13,18 @@
             <column name="CREATED_BY" value="1"/>
             <column name="UPDATED_AT" valueDate="CURRENT_TIMESTAMP"/>
             <column name="UPDATED_BY" value="1"/>
-            <column name="IS_DELETED" value="N"/>
-            <column name="USERNAME" value="ADMIN"/>
+            <column name="IS_DELETED" value="false"/>
+            <column name="USERNAME" value="USER1"/>
+            <column name="PASSWORD" value="$2y$12$kzvDcR04ByZHqnxFL8wcFu3GvCdkc.OaUfpCSXsIFN9Mii1Q4lrcS"/>
         </insert>
         <insert tableName="E_USER">
             <column name="CREATED_AT" valueDate="CURRENT_TIMESTAMP"/>
             <column name="CREATED_BY" value="1"/>
             <column name="UPDATED_AT" valueDate="CURRENT_TIMESTAMP"/>
             <column name="UPDATED_BY" value="1"/>
-            <column name="IS_DELETED" value="N"/>
-            <column name="USERNAME" value="CONTAAS"/>
-        </insert>
-    </changeSet>
-
-
-    <changeSet id="insert_role_data" author="kagapov">
-        <insert tableName="E_ROLE">
-            <column name="CREATED_AT" valueDate="CURRENT_TIMESTAMP"/>
-            <column name="CREATED_BY" value="1"/>
-            <column name="UPDATED_AT" valueDate="CURRENT_TIMESTAMP"/>
-            <column name="UPDATED_BY" value="1"/>
-            <column name="IS_DELETED" value="N"/>
-            <column name="NAME" value="ROLE_ADMIN"/>
-        </insert>
-        <insert tableName="E_ROLE">
-            <column name="CREATED_AT" valueDate="CURRENT_TIMESTAMP"/>
-            <column name="CREATED_BY" value="1"/>
-            <column name="UPDATED_AT" valueDate="CURRENT_TIMESTAMP"/>
-            <column name="UPDATED_BY" value="1"/>
-            <column name="IS_DELETED" value="N"/>
-            <column name="NAME" value="ROLE_CONTAAS"/>
-        </insert>
-    </changeSet>
-
-    
-    <changeSet id="insert_user_role_data" author="kagapov">
-        <insert tableName="E_USER_ROLE">
-            <column name="CREATED_AT" valueDate="CURRENT_TIMESTAMP"/>
-            <column name="CREATED_BY" value="1"/>
-            <column name="UPDATED_AT" valueDate="CURRENT_TIMESTAMP"/>
-            <column name="UPDATED_BY" value="1"/>
-            <column name="IS_DELETED" value="N"/>
-            <column name="USER_ID" value="1"/>
-            <column name="ROLE_ID" value="1"/>
-        </insert>
-        <insert tableName="E_USER_ROLE">
-            <column name="CREATED_AT" valueDate="CURRENT_TIMESTAMP"/>
-            <column name="CREATED_BY" value="1"/>
-            <column name="UPDATED_AT" valueDate="CURRENT_TIMESTAMP"/>
-            <column name="UPDATED_BY" value="1"/>
-            <column name="IS_DELETED" value="N"/>
-            <column name="USER_ID" value="2"/>
-            <column name="ROLE_ID" value="2"/>
+            <column name="IS_DELETED" value="false"/>
+            <column name="USERNAME" value="USER2"/>
+            <column name="PASSWORD" value="$2y$12$YsfkD3H1Yhv97xdlTsR5Gud8SVjwmA9d3FSOLms6.vEtQ2pzTj8By"/>
         </insert>
     </changeSet>
 

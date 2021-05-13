@@ -1,10 +1,10 @@
-package ru.sbrf.muza_service.config;
+package ru.sbrf.salun_service.config;
 
 import org.springframework.data.domain.AuditorAware;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
-import ru.sbrf.muza_service.jwt.JwtUser;
-import ru.sbrf.muza_service.jwt.JwtUserFactory;
+import ru.sbrf.salun_service.jwt.JwtUser;
+import ru.sbrf.salun_service.jwt.JwtUserFactory;
 
 import java.util.Optional;
 

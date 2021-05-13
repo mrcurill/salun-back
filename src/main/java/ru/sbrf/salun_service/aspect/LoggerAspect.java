@@ -1,4 +1,4 @@
-package ru.sbrf.muza_service.aspect;
+package ru.sbrf.salun_service.aspect;
 
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
@@ -20,7 +20,7 @@ import java.lang.reflect.Method;
 @Component
 public class LoggerAspect {
 
-    @Before("@annotation(ru.sbrf.muza_service.aspect.LogRequestResponse)")
+    @Before("@annotation(ru.sbrf.salun_service.aspect.LogRequestResponse)")
     public void myAdvice(JoinPoint joinPoint) {
         Object[] args = joinPoint.getArgs();
 
@@ -37,7 +37,7 @@ public class LoggerAspect {
                 argsStrBuilder.toString());
     }
 
-    @Around("@annotation(ru.sbrf.muza_service.aspect.LogRequestResponse)")
+    @Around("@annotation(ru.sbrf.salun_service.aspect.LogRequestResponse)")
     public Object log(final ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder
                 .currentRequestAttributes())
@@ -61,7 +61,7 @@ public class LoggerAspect {
         return value;
     }
 
-    @AfterReturning(value = "@annotation(ru.sbrf.muza_service.aspect.LogRequestResponse)", returning = "result")
+    @AfterReturning(value = "@annotation(ru.sbrf.salun_service.aspect.LogRequestResponse)", returning = "result")
     public void myAdvice2(JoinPoint joinPoint, Object result) {
         log.info("RESPONSE ===> {}, {}",
                 getClassMethod(joinPoint),

@@ -1,4 +1,4 @@
-package ru.sbrf.muza_service.jwt;
+package ru.sbrf.salun_service.jwt;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.SecurityConfigurerAdapter;

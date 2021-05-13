@@ -1,4 +1,4 @@
-package ru.sbrf.muza_service.aspect;
+package ru.sbrf.salun_service.aspect;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

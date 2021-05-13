@@ -3,13 +3,16 @@ package ru.sbrf.salun_service.web.request;
 import lombok.Data;
 
 /**
- * Форма логина
+ * Форма регистрации
  */
 @Data
-public class LoginRequest {
+public class RegisterRequest {
 
     /** Логин пользователя */
     private String username;
+    /** Почта */
+    private String email;
     /** Пароль */
     private String password;
+
 }

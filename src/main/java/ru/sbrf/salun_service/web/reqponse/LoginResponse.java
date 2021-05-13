@@ -1,4 +1,4 @@
-package ru.sbrf.muza_service.web.reqponse;
+package ru.sbrf.salun_service.web.reqponse;
 
 
 import lombok.Data;
@@ -10,7 +10,7 @@ import lombok.Data;
 public class LoginResponse {
 
     /** id пользователя */
-    private Long user_id;
+    private Long userId;
     /** jwt токен */
     private String token;
 

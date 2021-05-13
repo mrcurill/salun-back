@@ -1,4 +1,4 @@
-package ru.sbrf.muza_service.jwt;
+package ru.sbrf.salun_service.jwt;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;

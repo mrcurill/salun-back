@@ -1,4 +1,4 @@
-package ru.sbrf.muza_service.web.reqponse;
+package ru.sbrf.salun_service.web.reqponse;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

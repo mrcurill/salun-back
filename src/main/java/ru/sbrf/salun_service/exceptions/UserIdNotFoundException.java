@@ -1,4 +1,4 @@
-package ru.sbrf.muza_service.exceptions;
+package ru.sbrf.salun_service.exceptions;
 
 public class UserIdNotFoundException extends CustomException{
 
