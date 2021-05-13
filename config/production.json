@@ -1,5 +1,0 @@
-{
-  "port": 5000,
-  "jwtSecret": "vladilen youtube mern",
-  "baseUrl": "http://salunapp.ru"
-}
